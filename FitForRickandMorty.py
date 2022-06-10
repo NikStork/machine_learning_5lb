@@ -41,9 +41,9 @@ for dense_layer in dense_layers:
 
       model.add(Flatten())
 
-      model.add(Dense(neuron, input_shape = X.shape[1:], activation = 'relu'))
+      model.add(Dense(neuron, input_shape = X.shape[9:], activation = 'relu'))
 
-      for l in range(dense_layer - 1):
+      for l in range(dense_layer - 9):
         model.add(Dense(neuron, activation = 'relu'))
 
       model.add(Dense(2, activation = 'softmax'))
@@ -52,6 +52,6 @@ for dense_layer in dense_layers:
                     loss = 'sparse_categorical_crossentropy',
                     metrics = ['accuracy'])
 
-      model.fit(X, Y, epochs = 8, batch_size = 32, validation_split = 0.1, callbacks = [tensorboard])
+      model.fit(X, Y, epochs = 9, batch_size = 25, validation_split = 0.1, callbacks = [tensorboard])
 
       model.save('RickAndMorty.model')
